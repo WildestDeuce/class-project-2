@@ -1,24 +1,24 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all Channels
+  app.get("/api/Channels", function(req, res) {
+    db.Channel.findAll({}).then(function(dbChannels) {
+      res.json(dbChannels);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new Channel
+  app.post("/api/Channels", function(req, res) {
+    db.Channel.create(req.body).then(function(dbChannel) {
+      res.json(dbChannel);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Delete an Channel by id
+  app.delete("/api/Channels/:id", function(req, res) {
+    db.Channel.destroy({ where: { id: req.params.id } }).then(function(dbChannel) {
+      res.json(dbChannel);
     });
   });
 };
