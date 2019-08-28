@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Channel.findAll({}).then(function(dbChannels) {
       res.render("index", {
-        msg: "Welcome!",
+        msg: "Welcome To",
         Channels: dbChannels
       });
     });
