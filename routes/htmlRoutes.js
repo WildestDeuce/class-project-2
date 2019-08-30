@@ -11,9 +11,15 @@ module.exports = function(app) {
     });
   });
 
+//app.get("/channels/:name") req.params.name
+//res.render("channels", {msg:dbChannels})
   // Load Channel page and pass in an Channel by id
   app.get("/channels", function(req, res) {
-    db.Channel.findAll({}).then(function(dbChannels) {
+    db.Channel.findAll({
+      where: {
+        name: db.Messages.channel_name
+      }
+    }).then(function(dbChannels) {
       res.render("channels")
       console.log(dbChannels);
     });
