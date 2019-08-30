@@ -12,11 +12,10 @@ module.exports = function(app) {
   });
 
   // Load Channel page and pass in an Channel by id
-  app.get("/Channel/:id", function(req, res) {
-    db.Channel.findOne({ where: { id: req.params.id } }).then(function(dbChannels) {
-      res.render("Channel", {
-        Channel: dbChannels
-      });
+  app.get("/channels", function(req, res) {
+    db.Channel.findAll({}).then(function(dbChannels) {
+      res.render("channels")
+      console.log(dbChannels);
     });
   });
 
