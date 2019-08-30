@@ -28,21 +28,11 @@ module.exports = function(app) {
   });
 
   app.get("/channels", function(req, res) {
-<<<<<<< HEAD
-    db.Channel.findAll({
-      where: {
-        name: db.Messages.channel_name
-      }
-    }).then(function(dbChannels) {
-      res.render("channels")
-      console.log(dbChannels);
-=======
     db.Channel.findAll({}).then(function(data) {
       console.log(data)
       res.render("channels", {
         messages: data
       })
->>>>>>> 62d7c8257bd2ef8a23c230555eb11e00f29f0969
     });
   });
 
