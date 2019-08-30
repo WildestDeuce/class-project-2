@@ -6,8 +6,16 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true,
       primaryKey: true
     },
-    topic: DataTypes.STRING,
-    messages: DataTypes.TEXT
+    name: DataTypes.STRING,
   });
+  var Messages = sequelize.define("Message", {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    channel_name: DataTypes.STRING,
+    message: DataTypes.TEXT
+  })
   return Channel;
 };
