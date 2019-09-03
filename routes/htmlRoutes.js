@@ -28,10 +28,15 @@ module.exports = function(app) {
   });
 
   app.get("/channels", function(req, res) {
+    var nameArray = []
     db.Channel.findAll({}).then(function(data) {
-      console.log(data)
+      for (var i = 0; i < data.length; i++) {
+        var name = data[i].dataValues.name;
+        nameArray.push(name)
+      };
+      console.log(nameArray)
       res.render("channels", {
-        messages: data
+        messages: nameArray
       })
     });
   });
