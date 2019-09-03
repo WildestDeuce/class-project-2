@@ -7,6 +7,12 @@ module.exports = function(app) {
       res.json(dbChannels);
     });
   });
+//Create new Message
+  app.get("/api/messages", function(req, res) {
+    db.Messages.findAll({}).then(function(dbChannels) {
+      res.json(dbChannels);
+    });
+  });
 
   // Create a new Channel
   app.post("/api/Channels", function(req, res) {
