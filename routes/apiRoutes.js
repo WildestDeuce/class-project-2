@@ -9,8 +9,8 @@ module.exports = function(app) {
   });
 //Create new Message
   app.get("/api/messages", function(req, res) {
-    db.Messages.findAll({}).then(function(dbChannels) {
-      res.json(dbChannels);
+    db.Message.findAll({}).then(function(dbMessages) {
+      res.json(dbMessages);
     });
   });
 
