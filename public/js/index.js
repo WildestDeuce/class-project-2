@@ -98,15 +98,24 @@
 // //$submitBtn.on("click", handleFormSubmit);
 // //$exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-$('#submit-button').on('click', function(event) {
+$('#submit-button').on('click', function (event) {
   event.preventDefault();
   console.log('test')
 });
 
-$('.channel-button').on('click', function(event) {
+$('.channel-button').on('click', function (event) {
   console.log($(this).attr('data-name'))
+  var name = $(this).attr('data-name')
   event.preventDefault();
-  $.get('api/messages', function(data) {
+  $.get('/api/messages/' + name, function () {
+  }).then(function (data) {
     console.log(data)
+    for (var i = 0; i < data.length; i++) {
+      var message = data[i].message
+      console.log(message)
+      var newDiv = $('<div>');
+      newDiv.append(message);
+      $('.messages-holder').append(newDiv);
+    }
   })
 });

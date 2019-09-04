@@ -9,5 +9,13 @@ module.exports = function (sequelize, DataTypes) {
     },
     name: DataTypes.STRING,
   });
+
+  Channel.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    Channel.hasMany(models.Message, {
+      onDelete: "cascade"
+    });
+  };
   return Channel;
 };
