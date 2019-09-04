@@ -4,7 +4,7 @@
       <h1>Channels</h1>
       <ul>
         {{#each messages}}
-        <button>{{this}}</button>
+        <button class="channel-button" data-name="{{this}}">{{this}}</button>
         <br>
         <br>
         {{/each}}
