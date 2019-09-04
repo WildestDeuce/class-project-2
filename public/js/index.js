@@ -104,18 +104,20 @@ $('#submit-button').on('click', function (event) {
 });
 
 $('.channel-button').on('click', function (event) {
+  $(this).attr("disabled", "disabled"); 
   console.log($(this).attr('data-name'))
   var name = $(this).attr('data-name')
   event.preventDefault();
   $.get('/api/messages/' + name, function () {
   }).then(function (data) {
     console.log(data)
-    for (var i = 0; i < data.length; i++) {
-      var message = data[i].message
-      console.log(message)
-      var newDiv = $('<div>');
-      newDiv.append(message);
-      $('.messages-holder').append(newDiv);
-    }
+
+      for (var i = 0; i < data.length; i++) {
+        var message = data[i].message
+        console.log(message)
+        var newDiv = $('<div>');
+        newDiv.append(message);
+        $('.messages-holder').append(newDiv);
+      }
   })
 });
