@@ -5,6 +5,8 @@
       <ul>
         {{#each messages}}
         <button>{{this}}</button>
+        <br>
+        <br>
         {{/each}}
       </ul>
     </div>
@@ -18,6 +20,8 @@
       <form>
         Type something: <input type="text" class="message-input" placeholder="Type something">
         <button type="submit" id="submit-button">Submit</button>
+        <a href="api/messages">Messages</a>
+        <a href="api/Channels">Channels</a>
       </form>
     </div>
   </div>
