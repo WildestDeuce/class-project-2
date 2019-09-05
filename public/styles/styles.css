@@ -14,3 +14,30 @@ body{
  padding: 0px;
  margin: 0px;
 }
+.pulse .btn 
+{
+  animation: pulse 1.5s cubic-bezier(0.66, 0.67, 0.83, 0.99) infinite;
+}
+@keyframes pulse
+{
+  0%
+  {
+   outline: 1px solid #428bca;
+   outline-offset: 0px;  
+  }
+  30%
+  {
+   outline: 1px solid rgba(239, 242, 243, 0.986);
+   outline-offset: 10px;  
+  }
+  60%
+  {
+   outline: 1px solid transparent;
+   outline-offset: 20px;  
+  }
+  100%
+  {
+   outline: 1px solid transparent;
+   outline-offset: 60px;  
+  }
+}
