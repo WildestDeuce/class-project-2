@@ -1,6 +1,7 @@
 .list-group-item {
   line-height: 2.5;
 }
+<<<<<<< HEAD
 
 @keyframes bgcolor {
   0% {
@@ -71,3 +72,8 @@ body{
    outline-offset: 60px;  
   }
 }
+=======
+.message-input {
+  margin-top: 50vh;
+}
+>>>>>>> 8565f5d28d4d579cd4efdb00e2ee9470c8f17673
