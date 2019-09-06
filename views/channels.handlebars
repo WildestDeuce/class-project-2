@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col">
       <h1>Channels</h1>
+      <hr>
       <ul>
         {{#each messages}}
         <button class="channel-button" data-name="{{this}}">{{this}}</button>
@@ -12,10 +13,11 @@
     </div>
     <div class="col">
       <h1>ChatSpace</h1>
-      <br>
+      <hr>
       <h2>Messages</h2>
+      <br>
       <div class="messages-holder">
-        
+
       </div>
       <form id="submit-form">
         Type something: <input type="text" class="message-input" placeholder="Type something">
