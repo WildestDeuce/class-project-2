@@ -5,7 +5,7 @@ $('.channel-button').on('click', function (event) {
   $('.message-prompt').hide();
   $('#messages-h2').text('Messages in: ' + name);
   $('#messages-h2').show();
-  
+
 
 
   $.get('/api/messages/' + name, function () {
@@ -26,24 +26,33 @@ $('.channel-button').on('click', function (event) {
 
 $('#submit-button').on('click', function (event) {
   event.preventDefault();
-  var submitChannelName = $('#submit-button').attr('data-name');
-  console.log(submitChannelName);
-  console.log($(".message-input").val())
+  if ($('.message-input').val() === "") {
+    alert('Enter a message')
+  }
+  else {
+    var submitChannelName = $('#submit-button').attr('data-name');
+    console.log(submitChannelName);
+    console.log($(".message-input").val())
+    if (submitChannelName === undefined) {
+      alert('Please select a channel')
+    }
+    else {
+      var messageData = {
+        'channel_name': submitChannelName,
+        'message': $(".message-input").val()
+      };
   
-  var messageData = {
-    'channel_name': submitChannelName,
-    'message': $(".message-input").val()
-  };
-
-    $.post('/api/messages', messageData,function() {
-      
-    }).then(function(data) {
+      $.post('/api/messages', messageData, function () {
+  
+      }).then(function (data) {
         console.log(data)
         var message = data.message
         console.log(message)
         var newDiv = $('<div>');
         newDiv.append(message);
         $('.messages-holder').append(newDiv);
-      
-    })
+  
+      });
+    }
+  }
 });
