@@ -1,19 +1,28 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Channels</h5>
-          <p>
-            <strong>ID</strong>: {{channels.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{channels.text}}</p>
-          <p>
-            <strong>Description:</strong> {{channels.description}}</p>
-            <a href="/">← Back To Home</a>
-        </div>
+    <div class="col">
+      <h1>Channels</h1>
+      <ul>
+        {{#each messages}}
+        <button class="channel-button" data-name="{{this}}">{{this}}</button>
+        <br>
+        <br>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col">
+      <h1>ChatSpace</h1>
+      <br>
+      <h2>Messages</h2>
+      <div class="messages-holder">
+        
       </div>
+      <form id="submit-form">
+        Type something: <input type="text" class="message-input" placeholder="Type something">
+        <button data-name="{{dbMessages}}" type="submit" id="submit-button">Submit</button>
+        <a href="api/messages">Messages</a>
+        <a href="api/Channels">Channels</a>
+      </form>
     </div>
   </div>
 </div>
