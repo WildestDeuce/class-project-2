@@ -15,7 +15,7 @@ $('.channel-button').on('click', function (event) {
   $.get('/api/messages/' + name, function () {
   }).then(function (data) {
     $('.messages-holder').empty();
-    //loops through data iand appends each message to .messages-holder
+    //loops through data and appends each message to .messages-holder
     for (var i = 0; i < data.length; i++) {
       var message = data[i].message;
 
