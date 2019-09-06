@@ -21,6 +21,12 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/messages", function(req, res) {
+    db.Message.create(req.body).then(function(dbMessages) {
+      res.json(dbMessages);
+    });
+  });
+
   // Delete an Channel by id
   app.delete("/api/Channels/:id", function(req, res) {
     db.Channel.destroy({ where: { id: req.params.id } }).then(function(dbChannel) {

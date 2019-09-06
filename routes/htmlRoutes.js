@@ -27,7 +27,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/channels", function(req, res) {
+  app.get("/channels/", function(req, res) {
     var nameArray = []
     db.Channel.findAll({}).then(function(data) {
       for (var i = 0; i < data.length; i++) {
