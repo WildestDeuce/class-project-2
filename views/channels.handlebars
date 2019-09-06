@@ -1,82 +1,70 @@
 <div class="container">
- <div class="row">
-   <div class="col">
-     <h1>Channels</h1>
-     <hr>
-     <ul>
-       {{#each messages}}
-       <button class="channel-button" data-name="{{this}}">{{this}}</button>
-       <br>
-       <br>
-       {{/each}}
-     </ul>
-   </div>
-   <div class="col">
-     <h1>ChatSpace</h1>
-     <hr>
-     <br>
-     <h2>Messages</h2>
-     <div class="messages-holder">
-       blahblahblah
-     </div>
-     <form>
-       Type something: <input type="text" class="message-input" placeholder="Type something">
-       <button type="submit" id="submit-button">Submit</button>
-       <a href="api/messages">Messages</a>
-       <a href="api/Channels">Channels</a>
-     </form>
-   </div>
- </div>
+  <div class="row">
+    <div class="col">
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Channels</h1>
+      <hr>
+      <ul>
+        {{#each messages}}
+        <button class="channel-button" data-name="{{this}}">{{this}}</button>
+        <br>
+        <br>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col">
+      <h1>ChatSpace</h1>
+      <hr>
+      <br>
+      <h2>Messages</h2>
+      <hr>
+      <br>
+      <br>
+      <div class="messages-holder">
+        <bold>Example message</bold>
+      </div>
+      <br>
+      <form>
+        <input type="text" class="message-input" placeholder="Type something">
+        <button type="submit" id="submit-button">Submit</button>
+        <br>
+        <br>
+        {{!-- <a href="api/messages" style="margin: 5%">Messages</a>
+        <a href="api/Channels">Channels</a> --}}
+        <br>
+      </form>
+    </div>
+  </div>
 </div>
-{{!-- <div class="container">
- <div class="row">
-   <div class="col">
-     <h1>Channels</h1>
-     <ul>
-       {{#each messages}}
-       <button class="channel-button" data-name="{{this}}">{{this}}</button>
-       <br>
-       <br>
-       {{/each}}
-     </ul>
-   </div>
-   <div class="col">
-     <h1>ChatSpace</h1>
-     <br>
-     <h2>Messages</h2>
-     <div class="messages-holder">
-       blahblahblah
-     </div>
-     <form>
-       Type something: <input type="text" class="message-input" placeholder="Type something">
-       <button type="submit" id="submit-button">Submit</button>
-       <a href="api/messages">Messages</a>
-       <a href="api/Channels">Channels</a>
-     </form>
-     <button id="meme-button">Meme Me Bro!!</button> --}}
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script type="text/javascript">
-       // The createRow function takes data returned by OMDB and appends the table data to the tbody
-       $("#meme-button").on("click", function (event) {
-         event.preventDefault();
-         $('.messages-holder').empty();
-         searchForMeme();
-       })
-       var searchForMeme = function () {
-         var queryURL = "https://api.imgflip.com/get_memes";
-         $.ajax({
-           url: queryURL,
-           method: "GET"
-         }).then(function (response) {
-           //console.log(response.data.memes[0].url);
-           let memeSelect = Math.floor(Math.random() * 101);
-           let newImage = $("<img>");
-           newImage.attr("src", response.data.memes[memeSelect].url)
-           console.log(response.data.memes[memeSelect].url);
-           $(".messages-holder").prepend(newImage);
-         });
-       }
-     </script>
-   </div>
- </div>
+
+{{!-- <button id="meme-button">Meme Me Bro!!</button>--}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+  // The createRow function takes data returned by OMDB and appends the table data to the tbody
+  /*$("#meme-button").on("click", function (event) {
+    event.preventDefault();
+    $('.messages-holder').empty();
+    searchForMeme();
+  })
+  var searchForMeme = function () {
+    var queryURL = "https://api.imgflip.com/get_memes";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function (response) {
+      //console.log(response.data.memes[0].url);
+      let memeSelect = Math.floor(Math.random() * 101);
+      let newImage = $("<img>");
+      newImage.attr("src", response.data.memes[memeSelect].url)
+      console.log(response.data.memes[memeSelect].url);
+      $(".messages-holder").prepend(newImage);
+    } --}}
+      });*/
+</script>
+</div>
+</div>
 </div>
