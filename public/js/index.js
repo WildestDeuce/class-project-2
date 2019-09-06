@@ -98,26 +98,48 @@
 // //$submitBtn.on("click", handleFormSubmit);
 // //$exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-$('#submit-button').on('click', function (event) {
-  event.preventDefault();
-  console.log('test')
-});
-
 $('.channel-button').on('click', function (event) {
-  $(this).attr("disabled", "disabled"); 
-  console.log($(this).attr('data-name'))
-  var name = $(this).attr('data-name')
   event.preventDefault();
+  var name = $(this).attr('data-name');
+  $('#submit-button').attr('data-name', name);
+
+
+
   $.get('/api/messages/' + name, function () {
   }).then(function (data) {
     console.log(data)
 
-      for (var i = 0; i < data.length; i++) {
-        var message = data[i].message
+    $('.messages-holder').empty();
+
+    for (var i = 0; i < data.length; i++) {
+      var message = data[i].message
+      console.log(message)
+      var newDiv = $('<div>');
+      newDiv.append(message);
+      $('.messages-holder').append(newDiv);
+    }
+  })
+});
+
+$('#submit-button').on('click', function (event) {
+  event.preventDefault();
+  console.log($(".message-input").val())
+  var submitChannelName = $('#submit-button').attr('data-name');
+  console.log(submitChannelName);
+  var messageData = {
+    'channel_name': submitChannelName,
+    'message': $(".message-input").val()
+  }
+
+    $.post('/api/messages', messageData,function() {
+      
+    }).then(function(data) {
+        console.log(data)
+        var message = data.message
         console.log(message)
         var newDiv = $('<div>');
         newDiv.append(message);
         $('.messages-holder').append(newDiv);
-      }
-  })
+      
+    })
 });
