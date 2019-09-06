@@ -117,19 +117,20 @@ $('.channel-button').on('click', function (event) {
       var newDiv = $('<div>');
       newDiv.append(message);
       $('.messages-holder').append(newDiv);
-    }
-  })
+    };
+  });
 });
 
 $('#submit-button').on('click', function (event) {
   event.preventDefault();
-  console.log($(".message-input").val())
   var submitChannelName = $('#submit-button').attr('data-name');
   console.log(submitChannelName);
+  console.log($(".message-input").val())
+  
   var messageData = {
     'channel_name': submitChannelName,
     'message': $(".message-input").val()
-  }
+  };
 
     $.post('/api/messages', messageData,function() {
       
