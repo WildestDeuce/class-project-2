@@ -1,0 +1,181 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+      <style>
+        .bs-vertical-slider .carousel-item-next.carousel-item-left,
+        .bs-vertical-slider .carousel-item-prev.carousel-item-right {
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+
+        .bs-vertical-slider .carousel-item-next,
+        .bs-vertical-slider .active.carousel-item-right {
+          -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100% 0);
+        }
+
+        .bs-vertical-slider .carousel-item-prev,
+        .bs-vertical-slider .active.carousel-item-left {
+          -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+        }
+      </style>
+      </head>
+
+      <body>
+
+        <h1>
+          <p style="text-align: center">ChatSpace</p>
+        </h1>
+        <hr>
+        <div class="container">
+          <div class="col-6">
+
+            <br>
+            <br>
+            <h1>Channels</h1>
+            <hr style="border-block-width:">
+
+            <div class="col">
+
+
+              {{!-- <a href="api/messages" style="margin: 5%">Messages</a>
+        <a href="api/Channels">Channels</a> --}}
+              <br>
+              </form>
+            </div>
+            <div class="container">
+              <div id="bs4-vertical-slide-carousel" class="carousel bs-vertical-slider slide" data-ride="carousel">
+                <!--<ol class="carousel-indicators">
+                <li data-target="#bs4-vertical-slide-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#bs4-vertical-slide-carousel" data-slide-to="1"></li>
+                <li data-target="#bs4-vertical-slide-carousel" data-slide-to="2"></li>
+                <li data-target="#bs4-vertical-slide-carousel" data-slide-to="3"></li>
+              </ol>-->
+
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block mx-auto img-fluid"
+                      src="C:\Users\Ashlie\Desktop\project2\class-project-2\public\styles\COD.jpg" alt="Slide Number 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block mx-auto img-fluid"
+                      src="C:\Users\Ashlie\Desktop\project2\class-project-2\public\styles\GTA.jpg" alt="Slide Number 2">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block mx-auto img-fluid"
+                      src="C:\Users\Ashlie\Desktop\project2\class-project-2\public\styles\minecraft.jpg"
+                      alt="Slide Number 3">
+                  </div>
+                  <!--<div class="carousel-item">
+        <img class="d-block mx-auto img-fluid" src="images/BS-slide-4.jpeg" alt="Slide Number 4">
+          Captions for the slides go here 
+            <div class="carousel-caption text-danger d-none d-sm-block">
+            <h5>Vertical Carousel Demo</h5>
+            <p class="text-light">Slides moving vertically rather default horizontal
+            <button class="btn btn-outline-info btn-lg">More info</button>
+            </p>
+            </div>-->
+                  <!--Captions ending here for slide 3
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <button class="btn btn-success" id="btnPrev">Prev</button>
+            <button class="btn btn-danger" id="btnPause">Pause</button>
+            <button class="btn btn-success" id="btnNext">Next</button>
+          </div>
+
+        </div>-->
+
+
+                  <script>
+                    $('#bs4-vertical-slide-carousel').carousel({
+                      interval: 1000
+                    })
+                    $('#btnPrev').on('click', function () {
+                      $('#bs4-vertical-slide-carousel').carousel('prev');
+                    })
+                    $('#btnPause').on('click', function () {
+                      $('#bs4-vertical-slide-carousel').carousel('pause');
+                    })
+                    $('#btnNext').on('click', function () {
+                      $('#bs4-vertical-slide-carousel').carousel('next');
+                    })
+
+                  </script>
+
+
+                </div>
+
+              </div>
+              <div class="messagewrapper"></div>
+              <h2>Messages</h2>
+              <hr>
+              <ul>
+                {{#each messages}}
+                <button class="channel-button" data-name="{{this}}">{{this}}</button>
+                <br>
+                <br>
+                {{/each}}
+              </ul>
+
+              <div class="messages-holder">
+                <bold>Example message</bold>
+              </div>
+              <br>
+              <form>
+                <input type="text" class="message-input" placeholder="Type something">
+                <button type="submit" id="submit-button">Submit</button>
+                <br>
+                <br>
+            </div>
+
+
+
+            {{!-- // The createRow function takes data returned by OMDB and appends the table data to the tbody// --}}
+            <button id="meme-button"> Meme Me Bro!!</button>
+           
+    </div >
+  </div >
+</div >
+</div >
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript">
+              // The createRow function takes data returned by OMDB and appends the table data to the tbody
+              $("#meme-button").on("click", function (event) {
+                event.preventDefault();
+                $('.messages-holder').empty();
+                searchForMeme();
+              })
+              var searchForMeme = function () {
+                var queryURL = "https://api.imgflip.com/get_memes";
+                $.ajax({
+                  url: queryURL,
+                  method: "GET"
+                }).then(function (response) {
+                  //console.log(response.data.memes[0].url);
+                  let memeSelect = Math.floor(Math.random() * 101);
+                  let newImage = $("<img>");
+                  newImage.attr("src", response.data.memes[memeSelect].url)
+                  console.log(response.data.memes[memeSelect].url);
+                  $(".messages-holder").prepend(newImage);
+                });
+              }
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript">
+      </body >
