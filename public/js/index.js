@@ -61,7 +61,7 @@ $('#submit-button').on('click', function (event) {
       }).then(function (data) {
 
         var message = data.message;
-        var newDiv = $('<div>');
+        var newDiv = $('<div style="color: lime">');
         newDiv.append(message);
 
         $('.messages-holder').append(newDiv);
