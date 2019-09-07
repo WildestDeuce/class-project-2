@@ -36,6 +36,10 @@ module.exports = function(app) {
       res.json(dbMessage);
     });
   });
+//   app.post("/api/login", function(req, res) {
+//     console.log("hey");
+//     res.redirect(307, "/channels");
+//   });
 
   // Delete an Channel by id
   app.delete("/api/Channels/:id", function(req, res) {
