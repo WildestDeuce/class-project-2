@@ -16,6 +16,10 @@ module.exports = {
   },
   'production': {
     'use_env_variable': 'JAWSDB_URL',
-    'dialect': 'mysql'
+    'dialect': 'mysql',
+    'host': '	izm96dhhnwr2ieg0.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    'username': 'vrox2yis9tv98uhp',
+    'password':'medzuk2z8426exdb',
+    'database': 'ov4fopzfp7nnxv0t',
   }
 }
