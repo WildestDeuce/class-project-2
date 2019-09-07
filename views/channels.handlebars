@@ -79,6 +79,13 @@
       <div class="col">
         <h1>Channels</h1>
         <hr style="border-block-width:">
+        <ul>
+            {{#each messages}}
+            <button class="channel-button" data-name="{{this}}">{{this}}</button>
+            <br>
+            <br>
+            {{/each}}
+          </ul>
         <div class="container" id="carousel">
           <div id="bs4-vertical-slide-carousel" class="carousel bs-vertical-slider slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -106,25 +113,20 @@
         <h1>Messages</h1>
         <hr>
         <div id="pong">
-          <ul>
-            {{#each messages}}
-            <button class="channel-button" data-name="{{this}}">{{this}}</button>
-            <br>
-            <br>
-            {{/each}}
-          </ul>
+          
 
           <div class="messages-holder">
             <div class="bubex">
-              <bold>Example message: you have casino DLC in GTA5 yet?</bold>
             </div>
           </div>
         </div>
         <br>
+        <div class="error-holder"></div>
         <form>
           <input type="text" class="message-input" placeholder="Type something">
           <button type="submit" id="submit-button">Submit</button>
         </form>
+        
       </div>
     </div>
     <div class="row" style="height:auto">
@@ -140,6 +142,21 @@
           <button id="meme-button"> Meme Me Bro!!</button>
         </div>
       </div>
+
+    <div class="col">
+      <h1>ChatSpace</h1>
+      <h2 class="message-prompt">Click a channel to view messages</h2>
+      <br>
+      <h2 id="messages-h2">Messages</h2>
+      <div class="messages-holder">
+        
+      </div>
+      <div class="images-holder">
+
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
     </div>
 
   </div>
@@ -178,5 +195,4 @@
       });
     }
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>

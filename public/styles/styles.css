@@ -70,4 +70,28 @@ body{
    outline: 1px solid transparent;
    outline-offset: 60px;  
   }
+img {
+  width: 250px;
+}
+#meme-button {
+  margin-top: 20px;
+}
+button {
+  border: none;
+  border-radius: 3px;
+}
+#messages-h2 {
+  display: none;
+}
+.messages-holder {
+  max-width: 250px;
+}
+.message-input {
+  border: none;
+  border-radius: 3px;
+}
+.error-holder {
+  position: fixed;
+  color: red;
+  margin-top: 40vh;
 }

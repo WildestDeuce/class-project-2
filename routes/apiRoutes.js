@@ -19,11 +19,21 @@ module.exports = function(app) {
       res.json(dbMessages);
     });
   });
+  // Get all Messages
+  app.get("/api/messages", function(req, res) {
+    db.Message.findAll({}).then(function(dbMessages) {
+      res.json(dbMessages);
+    });
+  });
 
   // Create a new Channel
-  app.post("/api/Channels", function(req, res) {
-    db.Channel.create(req.body).then(function(dbChannel) {
-      res.json(dbChannel);
+  app.post("/api/messages", function(req, res) {
+    console.log(req)
+    db.Message.create({
+      channel_name: req.body.channel_name,
+      message: req.body.message
+    }).then(function(dbMessage) {
+      res.json(dbMessage);
     });
   });
   app.post("/api/login", function(req, res) {
