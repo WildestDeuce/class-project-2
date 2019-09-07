@@ -35,6 +35,10 @@
 
     }
 
+    #meme-button {
+      margin-top: 20px;
+    }
+
     .meme {
       max-height: 200px;
       width: auto;
@@ -43,6 +47,15 @@
     .center {
       text-align: center;
       margin-top: 1%
+    }
+
+    .messages-ul {
+      padding-left: 0px;
+    }
+
+    .all-buttons {
+      border-radius: 25px;
+      color: crimson
     }
 
     #carousel {
@@ -71,9 +84,9 @@
       <div class="col">
         <h1>Channels</h1>
         <hr style="border-block-width:">
-        <ul>
+        <ul class="messages-ul">
           {{#each messages}}
-          <button class="channel-button" data-name="{{this}}">{{this}}</button>
+          <button class="channel-button all-buttons" data-name="{{this}}">{{this}}</button>
           <br>
           <br>
           {{/each}}
@@ -127,19 +140,18 @@
           </div>
         </div>
         <br>
-        <div class="error-holder"></div>
-        <form>
-          <input type="text" class="message-input" placeholder="Type something">
-          <button type="submit" id="submit-button">Submit</button>
-        </form>
-
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <div class="float-left">
-          <button id="meme-button"> Meme Me Bro!!</button>
+        <div>
+          <div class="error-holder"></div>
+          <form>
+            <input type="text" class="message-input all-buttons" placeholder="Type something">
+            <button type="submit" id="submit-button" class="all-buttons">Submit</button>
+          </form>
+          <button id="meme-button" class="all-buttons"> Meme Me Bro!!</button>
         </div>
       </div>
 
@@ -172,7 +184,7 @@
           $("#memeholder").prepend(newImage);
         });
       }
-      $('#bs4-vertical-slide-carousel').carousel({interval: 1000})
+      $('#bs4-vertical-slide-carousel').carousel({ interval: 1000 })
       $('#btnPrev').on('click', function () {
         $('#bs4-vertical-slide-carousel').carousel('prev');
       })
