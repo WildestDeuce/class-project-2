@@ -31,12 +31,12 @@
     }
 
     #memeholder {
-      min-height: 250px;
+      min-height: 200px;
 
     }
 
     .meme {
-      max-height: 350px;
+      max-height: 100px;
       width: auto;
     }
 
@@ -52,6 +52,14 @@
     #pong {
       background-image: url("https://i.ytimg.com/vi/e4VRgY3tkh0/hqdefault.jpg");
       height: 100%;
+    }
+
+    .bubex {
+      width: 120px;
+      height: 100px;
+      background: rgb(247, 242, 0);
+      border-radius: 6px;
+
     }
   </style>
 </head>
@@ -107,17 +115,19 @@
           </ul>
 
           <div class="messages-holder">
-            <bold>Example message</bold>
+            <div class="bubex">
+              <bold>Example message: you have casino DLC in GTA5 yet?</bold>
+            </div>
           </div>
-          <br>
-          <form>
-            <input type="text" class="message-input" placeholder="Type something">
-            <button type="submit" id="submit-button">Submit</button>
-          </form>
         </div>
+        <br>
+        <form>
+          <input type="text" class="message-input" placeholder="Type something">
+          <button type="submit" id="submit-button">Submit</button>
+        </form>
       </div>
     </div>
-    <div class="row" style="height:auto" >
+    <div class="row" style="height:auto">
       <div class="col">
         <div class="center">
           <div id="memeholder"></div>
